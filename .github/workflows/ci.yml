@@ -54,9 +54,9 @@ jobs:
         working-directory: ./backend
         env:
           DB_HOST: localhost # GitHub maps service containers to localhost
-          DB_USER: myuser
-          DB_PASSWORD: mypass
-          DB_NAME: mydatabase
+          DB_USER: postgres
+          DB_PASSWORD: postgres
+          DB_NAME: tododb
 
       # Step 5: Log in to Docker Hub
       - name: Log in to Docker Hub
