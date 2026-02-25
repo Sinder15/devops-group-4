@@ -22,9 +22,9 @@ jobs:
       db:
         image: postgres:14-alpine
         env:
-          POSTGRES_USER: myuser
-          POSTGRES_PASSWORD: mypass
-          POSTGRES_DB: mydatabase
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: tododb
         ports:
           - 5432:5432
         # This health check ensures the DB is ready before tests run
