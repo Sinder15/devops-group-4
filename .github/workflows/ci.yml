@@ -41,14 +41,17 @@ jobs:
         with:
           node-version: '18'
           cache: 'npm' # Caches npm packages for faster builds
+          cache-dependency-path: backend/package-lock.json
 
       # Step 3: Install our app's dependencies
       - name: Install dependencies
         run: npm install
+        working-directory: ./backend
 
       # Step 4: Run the tests. We must provide the DB env vars!
       - name: Run tests
         run: npm test
+        working-directory: ./backend
         env:
           DB_HOST: localhost # GitHub maps service containers to localhost
           DB_USER: myuser
@@ -68,4 +71,4 @@ jobs:
         with:
           context: . # Build from the Dockerfile in the root
           push: true # Actually push the image
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devops-group-1:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devops-group-4:latest
