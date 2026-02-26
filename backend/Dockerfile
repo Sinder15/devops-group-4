@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm ci
 
 COPY . .
 
@@ -12,9 +12,11 @@ FROM node:18-alpine AS production
 
 WORKDIR /app
 
+RUN apk add --no-cache curl
+
 COPY --from=builder /app/package*.json ./
 
-RUN npm install --only=production
+RUN npm ci --only=production
 
 COPY --from=builder /app ./
 
