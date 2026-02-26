@@ -40,7 +40,7 @@ jobs:
         working-directory: ./frontend
 
       - name: Initialize Database
-        run: PGPASSWORD=postgres psql -h localhost -U postgres -d todo_db -f database/database.sql
+        run: PGPASSWORD=postgres psql -h localhost -U postgres -d tododb -f database/database.sql
         working-directory: ./
 
       - name: Run tests
