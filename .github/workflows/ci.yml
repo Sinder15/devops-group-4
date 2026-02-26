@@ -81,5 +81,7 @@ jobs:
       if: github.ref == 'refs/heads/main'
 
       steps:
-        - name: Trigger Render Deployment
-          run: curl -X POST ${{ secrets.RENDER_DEPLOY_HOOK }}
+      - name: Trigger Backend Deployment
+        run: curl -X POST ${{ secrets.RENDER_BACKEND_HOOK }}
+      - name: Trigger Frontend Deployment
+        run: curl -X POST ${{ secrets.RENDER_FRONTEND_HOOK }}
