@@ -73,6 +73,8 @@ jobs:
           file: ./frontend/Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/devops-frontend:latest
+          build-args: |
+            REACT_APP_API_URL=https://devops-backend-group4.onrender.com
 
   deploy:
       name: Deploy to Render
